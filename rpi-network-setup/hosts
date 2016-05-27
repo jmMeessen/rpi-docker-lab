@@ -1,0 +1,2 @@
+rpi3-1 ansible_host=rpi3-1.local
+rpi3-2 ansible_host=rpi3-2.local

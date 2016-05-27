@@ -1,0 +1,7 @@
+#- name: Update the system
+#  apt: update_cache=yes
+#       upgrade=yes
+
+- name: Install VIM
+  apt: name=vim
+       install_recommends=no  

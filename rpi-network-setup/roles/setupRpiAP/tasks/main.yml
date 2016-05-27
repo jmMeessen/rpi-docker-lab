@@ -1,0 +1,43 @@
+- name: install the bridge utilities
+  apt: name=bridge-utils
+       install_recommends=no 
+
+- name: install the Wifi Access point software
+  apt: name=hostapd
+       install_recommends=no
+
+- name: Copy interface definition file
+  copy: src=interfaces
+        dest=/etc/network/
+        owner=root group=root mode=0644
+
+- name: Copy network interfaces configuration (lo)
+  copy: src=lo
+        dest=/etc/network/interfaces.d/
+        owner=root group=root mode=0644
+
+- name: Copy network interfaces configuration (eth0)
+  copy: src=eth0
+        dest=/etc/network/interfaces.d/
+        owner=root group=root mode=0644
+
+- name: Copy network interfaces configuration (wlan0)
+  copy: src=wlan0
+        dest=/etc/network/interfaces.d/
+        owner=root group=root mode=0644
+
+- name: Copy network interfaces configuration (br0)
+  copy: src=br0
+        dest=/etc/network/interfaces.d/
+        owner=root group=root mode=0644
+
+- name: Copy the Access Point configuration (hostapd.conf)
+  copy: src=hostapd.conf
+        dest=/etc/hostapd/
+        owner=root group=root mode=0644
+
+- name: copy the default hostapd file (pointing to the hostapd.conf file)
+  copy: src=hostapd
+        dest=/etc/default/
+        owner=root group=root mode=0644
+
