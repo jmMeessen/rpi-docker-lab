@@ -1,7 +1,26 @@
-#- name: Update the system
-#  apt: update_cache=yes
-#       upgrade=yes
+- name: Update the apt cache
+  apt: update_cache=yes
+
+- name: Upgrade what needs to be upgraded
+  apt: upgrade=yes
 
 - name: Install VIM
   apt: name=vim
-       install_recommends=no  
+       install_recommends=no 
+
+- name: Update "ls" related alias in .bashrc.
+  lineinfile: >
+    dest="/home/pirate/.bashrc"
+    group=pirate
+    owner=pirate
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
+    backrefs=yes
+    state=present
+    create=yes
+  with_items:
+    - { regexp: "^# export LS_OPTIONS", line: "export LS_OPTIONS='--color=auto'" }
+    - { regexp: "^# eval \"`dircolors`\"", line: "eval \"`dircolors`\"" }
+    - { regexp: "^# alias ls=", line: "alias ls='ls $LS_OPTIONS'" }
+    - { regexp: "^# alias ll=", line: "alias ll='ls $LS_OPTIONS -l'" }
+    - { regexp: "^# alias l=", line: "alias l='ls $LS_OPTIONS -lA'" }
