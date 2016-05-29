@@ -6,6 +6,11 @@
   apt: name=hostapd
        install_recommends=no
 
+- name: Set the hostapd service so that it doesn't start automatically
+  service: name=hostapd
+           enabled=no
+           state=stopped 
+
 - name: Copy interface definition file
   copy: src=interfaces
         dest=/etc/network/
@@ -48,14 +53,14 @@
   become: yes 
   ignore_errors: true 
 
-- name: waiting for server to come back 
-  local_action: wait_for host={{ ansible_ssh_host | default(inventory_hostname) }} 
-                state=started 
-                delay=30 
-                timeout=60 
-  become: no
+#- name: waiting for server to come back 
+#  local_action: wait_for host={{ ansible_ssh_host | default(inventory_hostname) }} 
+#                state=started 
+#                delay=30 
+#                timeout=60 
+#  become: no
 
-- name: restart the hostapd service to be sure
-  service: name=hostapd 
-           state=restarted
+#- name: restart the hostapd service to be sure
+#  service: name=hostapd 
+#           state=restarted
 
