@@ -1,3 +1,7 @@
-rpi3-0 ansible_host=rpi3-0.local
-rpi3-1 ansible_host=rpi3-1.local
-rpi3-2 ansible_host=rpi3-2.local
+[wifiAP]
+rpi3-0 ansible_host=rpi3-0.local ansible_user=pirate ansible_ssh_pass=hypriot
+
+[rpi3]
+rpi3-1 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot
+rpi3-2 ansible_host=rpi3-2.local ansible_user=pirate ansible_ssh_pass=hypriot
+
