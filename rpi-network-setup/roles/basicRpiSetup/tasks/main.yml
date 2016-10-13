@@ -15,6 +15,13 @@
   - avahi-utils
   - libnss-mdns
 
+- name: remove the original (hypriot supplied) config file
+  file: path=/etc/systemd/system/docker.service.d/overlay.conf 
+        state=absent
+
+- name: copy the new configuration file  
+  copy: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
+
 - name: Update "ls" related alias in .bashrc.
   lineinfile: >
     dest="/home/pirate/.bashrc"

@@ -9,4 +9,16 @@
 ** puis se connecter via ssh (ssh-keygen ne reconnait pas avahi)
 ** faire tourner le script `initAllRpi.sh`
 * sudo apt-get install avahi-discover libnss-mdns
+
+* deborah@netbook:~$ docker run -d -p 5000:5000 --restart=unless-stopped --name registry \
+> -v `pwd`/registry-data:/var/lib/registry \
+> registry:2
+
+deborah@netbook:~$ docker tag registry:2 localhost:5000/registry:2
+deborah@netbook:~$ docker push localhost:5000/registry:2
+
+/home/.ssh/config => StrictHostKeyChecking +  UserKnownHostsFile /dev/null
+
+
+
  
