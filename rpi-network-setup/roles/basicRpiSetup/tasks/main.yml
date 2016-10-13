@@ -22,6 +22,12 @@
 - name: copy the new configuration file  
   copy: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
 
+- name: restart the docker daemon (with parameter reload)
+  systemd: 
+    - state=restarted 
+    - daemon_reload=yes 
+    - name=docker
+
 - name: Update "ls" related alias in .bashrc.
   lineinfile: >
     dest="/home/pirate/.bashrc"
