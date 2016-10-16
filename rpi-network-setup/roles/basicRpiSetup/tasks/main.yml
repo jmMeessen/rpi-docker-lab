@@ -23,9 +23,12 @@
   copy: src=docker.conf 
         dest=/etc/systemd/system/docker.service.d/docker.conf
 
-- name: restart the docker daemon (with parameter reload)
-  service: state=reloaded 
-          name=docker
+- name: reload the changed configuration (systemctl daemon-reload)
+  shell: "sudo systemctl daemon-reload"
+
+- name: restart the docker daemon 
+  service: state=restarted 
+           name=docker
 
 - name: Update "ls" related alias in .bashrc.
   lineinfile: >
