@@ -20,13 +20,12 @@
         state=absent
 
 - name: copy the new configuration file  
-  copy: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf
+  copy: src=docker.conf 
+        dest=/etc/systemd/system/docker.service.d/docker.conf
 
 - name: restart the docker daemon (with parameter reload)
-  systemd: 
-    - state=restarted 
-    - daemon_reload=yes 
-    - name=docker
+  service: state=reloaded 
+          name=docker
 
 - name: Update "ls" related alias in .bashrc.
   lineinfile: >

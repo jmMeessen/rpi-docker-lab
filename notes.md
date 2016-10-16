@@ -19,6 +19,7 @@ deborah@netbook:~$ docker push localhost:5000/registry:2
 
 /home/.ssh/config => StrictHostKeyChecking +  UserKnownHostsFile /dev/null
 
+compose => mettre le registry insecure dans le compose
 
 
  

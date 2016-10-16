@@ -5,3 +5,8 @@ rpi3-0 ansible_host=rpi3-0.local ansible_user=pirate ansible_ssh_pass=hypriot
 rpi3-1 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot
 rpi3-2 ansible_host=rpi3-2.local ansible_user=pirate ansible_ssh_pass=hypriot
 
+[rpi2]
+rpi-3 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot
+rpi-4 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot
+rpi-5 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot
+rpi-6 ansible_host=rpi3-1.local ansible_user=pirate ansible_ssh_pass=hypriot

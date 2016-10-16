@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ansible-playbook -i hosts basicSetup.yml  --limit=rpi3-2
+ansible-playbook -i hosts basicSetup.yml  --limit=rpi-3
