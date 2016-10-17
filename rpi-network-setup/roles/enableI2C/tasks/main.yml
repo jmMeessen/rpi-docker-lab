@@ -1,0 +1,27 @@
+# modify /etc/modules
+## add i2c-dev
+## add i2c-bcm2708
+- name: update module description
+  lineinfile: >
+    dest="/etc/modules"
+    group=root
+    owner=root
+    line="{{ item.line }}"
+    state=present
+    create=yes
+  with_items:
+    - { line: "i2c-dev" }
+    - { line: "i2c-bcm2708" }
+
+# modify /boot/config.txt
+## add dtparam=i2c1=on
+- name: update the /boot/config.txt
+  lineinfile:
+    dest="/boot/config.txt"
+    group=root
+    owner=root
+    line="dtparam=i2c1=on"
+    state=present
+    create=yes
+
+# reboot
