@@ -17,10 +17,11 @@
 deborah@netbook:~$ docker tag registry:2 localhost:5000/registry:2
 deborah@netbook:~$ docker push localhost:5000/registry:2
 
-localhost:5000/visualizer-arm:latest
+docker build -t squid github.com/sameersbn/docker-squid
 
-/home/.ssh/config => StrictHostKeyChecking +  UserKnownHostsFile /dev/null
-
-
+docker run --name squid -d --restart=always \
+  --publish 3128:3128 \
+  --volume `pwd`/squid-data:/var/spool/squid3 \
+  squid
 
  
