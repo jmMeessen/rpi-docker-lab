@@ -1,4 +1,9 @@
 - name: preload Docker images
   shell: "docker pull {{ item }}"
   with_items:
-  - armhf/hello-world
+  - thecaptainsshack/postgres-arm
+  - thecaptainsshack/rpi-worker
+  - thecaptainsshack/rpi-voting-app
+  - thecaptainsshack/rpi-result-app
+  - hypriot/rpi-redis
+  - resin/rpi-raspbian
