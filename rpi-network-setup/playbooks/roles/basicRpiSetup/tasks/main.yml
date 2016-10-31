@@ -19,7 +19,7 @@
   file: path=/etc/systemd/system/docker.service.d/overlay.conf 
         state=absent
 
-- name: copy the new configuration file  
+- name: copy the new docker configuration file  
   copy: src=docker.conf 
         dest=/etc/systemd/system/docker.service.d/docker.conf
 

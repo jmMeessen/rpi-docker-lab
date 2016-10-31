@@ -1,0 +1,14 @@
+- name: copy the proxy environment variable loader  
+  copy: src=proxy.shell 
+        dest=/etc/profile.d/proxy.sh
+
+- name: copy the Docker proxy configuration file  
+  copy: src=http-proxy.conf 
+        dest=/etc/systemd/system/docker.service.d/http-proxy.conf
+
+- name: reload the changed configuration (systemctl daemon-reload)
+  shell: "sudo systemctl daemon-reload"
+
+- name: restart the docker daemon 
+  service: state=restarted 
+           name=docker

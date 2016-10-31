@@ -4,6 +4,6 @@
   become_method: sudo
 
   roles:
-  - enableDotHw
+  - useProxy
 
   tasks:
