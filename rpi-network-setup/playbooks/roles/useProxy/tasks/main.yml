@@ -1,5 +1,5 @@
 - name: copy the proxy environment variable loader  
-  copy: src=proxy.shell 
+  copy: src=proxy.sh
         dest=/etc/profile.d/proxy.sh
 
 - name: copy the Docker proxy configuration file  
