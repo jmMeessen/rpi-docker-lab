@@ -1,0 +1,214 @@
+02-11-16 14:19:34
+
+PLAY [all] *********************************************************************
+
+TASK [setup] *******************************************************************
+ok: [rpi3-2]
+ok: [rpi3-1]
+
+TASK [basicRpiSetup : Update the apt cache] ************************************
+ok: [rpi3-1]
+ok: [rpi3-2]
+
+TASK [basicRpiSetup : Upgrade what needs to be upgraded] ***********************
+changed: [rpi3-1]
+changed: [rpi3-2]
+
+TASK [basicRpiSetup : Install VIM] *********************************************
+changed: [rpi3-1]
+changed: [rpi3-2]
+
+TASK [basicRpiSetup : Install avahi add-ons] ***********************************
+changed: [rpi3-2] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+changed: [rpi3-1] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+
+TASK [basicRpiSetup : remove the original (hypriot supplied) config file] ******
+changed: [rpi3-2]
+changed: [rpi3-1]
+
+TASK [basicRpiSetup : copy the new docker configuration file] ******************
+changed: [rpi3-1]
+changed: [rpi3-2]
+
+TASK [basicRpiSetup : reload the changed configuration (systemctl daemon-reload)] ***
+changed: [rpi3-1]
+changed: [rpi3-2]
+
+TASK [basicRpiSetup : restart the docker daemon] *******************************
+changed: [rpi3-2]
+changed: [rpi3-1]
+
+TASK [basicRpiSetup : Update "ls" related alias in .bashrc.] *******************
+changed: [rpi3-1] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi3-2] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi3-1] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi3-2] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi3-1] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi3-2] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi3-1] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi3-2] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi3-1] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+changed: [rpi3-2] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+
+TASK [enableDotHw : update module description] *********************************
+changed: [rpi3-2] => (item={u'line': u'i2c-dev'})
+changed: [rpi3-1] => (item={u'line': u'i2c-dev'})
+changed: [rpi3-2] => (item={u'line': u'i2c-bcm2708'})
+changed: [rpi3-1] => (item={u'line': u'i2c-bcm2708'})
+changed: [rpi3-2] => (item={u'line': u'spi-bcm2708'})
+changed: [rpi3-1] => (item={u'line': u'spi-bcm2708'})
+
+TASK [enableDotHw : update the /boot/config.txt] *******************************
+changed: [rpi3-2] => (item={u'line': u'dtparam=i2c1=on'})
+changed: [rpi3-1] => (item={u'line': u'dtparam=i2c1=on'})
+changed: [rpi3-2] => (item={u'line': u'dtparam=spi=on'})
+changed: [rpi3-1] => (item={u'line': u'dtparam=spi=on'})
+changed: [rpi3-1] => (item={u'line': u'dtparam=i2c_arm=on'})
+changed: [rpi3-2] => (item={u'line': u'dtparam=i2c_arm=on'})
+
+TASK [preloadImages : preload Docker images] ***********************************
+changed: [rpi3-2] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi3-1] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi3-2] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi3-1] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi3-2] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi3-1] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi3-2] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi3-1] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi3-2] => (item=hypriot/rpi-redis)
+changed: [rpi3-1] => (item=hypriot/rpi-redis)
+changed: [rpi3-2] => (item=resin/rpi-raspbian)
+changed: [rpi3-1] => (item=resin/rpi-raspbian)
+
+PLAY RECAP *********************************************************************
+rpi3-1                     : ok=13   changed=11   unreachable=0    failed=0   
+rpi3-2                     : ok=13   changed=11   unreachable=0    failed=0   
+
+
+PLAY [all] *********************************************************************
+
+TASK [setup] *******************************************************************
+ok: [rpi-3]
+ok: [rpi-4]
+ok: [rpi-6]
+ok: [rpi-5]
+
+TASK [basicRpiSetup : Update the apt cache] ************************************
+ok: [rpi-4]
+ok: [rpi-3]
+ok: [rpi-5]
+ok: [rpi-6]
+
+TASK [basicRpiSetup : Upgrade what needs to be upgraded] ***********************
+changed: [rpi-3]
+changed: [rpi-5]
+changed: [rpi-4]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : Install VIM] *********************************************
+changed: [rpi-4]
+changed: [rpi-3]
+changed: [rpi-5]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : Install avahi add-ons] ***********************************
+changed: [rpi-3] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+changed: [rpi-4] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+changed: [rpi-5] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+changed: [rpi-6] => (item=[u'avahi-discover', u'avahi-utils', u'libnss-mdns'])
+
+TASK [basicRpiSetup : remove the original (hypriot supplied) config file] ******
+changed: [rpi-4]
+changed: [rpi-5]
+changed: [rpi-3]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : copy the new docker configuration file] ******************
+changed: [rpi-5]
+changed: [rpi-4]
+changed: [rpi-3]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : reload the changed configuration (systemctl daemon-reload)] ***
+changed: [rpi-3]
+changed: [rpi-5]
+changed: [rpi-4]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : restart the docker daemon] *******************************
+changed: [rpi-4]
+changed: [rpi-5]
+changed: [rpi-3]
+changed: [rpi-6]
+
+TASK [basicRpiSetup : Update "ls" related alias in .bashrc.] *******************
+changed: [rpi-4] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi-3] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi-5] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi-6] => (item={u'regexp': u'^# export LS_OPTIONS', u'line': u"export LS_OPTIONS='--color=auto'"})
+changed: [rpi-4] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi-5] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi-3] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi-6] => (item={u'regexp': u'^# eval "`dircolors`"', u'line': u'eval "`dircolors`"'})
+changed: [rpi-3] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi-5] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi-4] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi-3] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi-4] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi-5] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi-6] => (item={u'regexp': u'^# alias ls=', u'line': u"alias ls='ls $LS_OPTIONS'"})
+changed: [rpi-4] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+changed: [rpi-5] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+changed: [rpi-3] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+changed: [rpi-6] => (item={u'regexp': u'^# alias ll=', u'line': u"alias ll='ls $LS_OPTIONS -l'"})
+changed: [rpi-6] => (item={u'regexp': u'^# alias l=', u'line': u"alias l='ls $LS_OPTIONS -lA'"})
+
+TASK [enablePiglowHw : update module description] ******************************
+changed: [rpi-4] => (item={u'line': u'i2c-dev'})
+changed: [rpi-5] => (item={u'line': u'i2c-dev'})
+changed: [rpi-3] => (item={u'line': u'i2c-dev'})
+changed: [rpi-6] => (item={u'line': u'i2c-dev'})
+changed: [rpi-4] => (item={u'line': u'i2c-bcm2708'})
+changed: [rpi-5] => (item={u'line': u'i2c-bcm2708'})
+changed: [rpi-3] => (item={u'line': u'i2c-bcm2708'})
+changed: [rpi-6] => (item={u'line': u'i2c-bcm2708'})
+
+TASK [enablePiglowHw : update the /boot/config.txt] ****************************
+changed: [rpi-4]
+changed: [rpi-5]
+changed: [rpi-3]
+changed: [rpi-6]
+
+TASK [preloadImages : preload Docker images] ***********************************
+changed: [rpi-3] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi-5] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi-4] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi-6] => (item=thecaptainsshack/postgres-arm)
+changed: [rpi-3] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi-5] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi-4] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi-6] => (item=thecaptainsshack/rpi-worker)
+changed: [rpi-5] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi-3] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi-4] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi-6] => (item=thecaptainsshack/rpi-voting-app)
+changed: [rpi-3] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi-5] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi-4] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi-3] => (item=hypriot/rpi-redis)
+changed: [rpi-5] => (item=hypriot/rpi-redis)
+changed: [rpi-4] => (item=hypriot/rpi-redis)
+changed: [rpi-3] => (item=resin/rpi-raspbian)
+changed: [rpi-5] => (item=resin/rpi-raspbian)
+changed: [rpi-4] => (item=resin/rpi-raspbian)
+changed: [rpi-6] => (item=thecaptainsshack/rpi-result-app)
+changed: [rpi-6] => (item=hypriot/rpi-redis)
+changed: [rpi-6] => (item=resin/rpi-raspbian)
+
+PLAY RECAP *********************************************************************
+rpi-3                      : ok=13   changed=11   unreachable=0    failed=0   
+rpi-4                      : ok=13   changed=11   unreachable=0    failed=0   
+rpi-5                      : ok=13   changed=11   unreachable=0    failed=0   
+rpi-6                      : ok=13   changed=11   unreachable=0    failed=0   
+
+02-11-16 16:30:27

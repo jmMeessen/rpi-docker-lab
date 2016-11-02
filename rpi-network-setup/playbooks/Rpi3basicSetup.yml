@@ -5,6 +5,8 @@
 
   roles:
   - basicRpiSetup
+  - useProxy
   - enableDotHw
+  - preloadImages
 
   tasks:
