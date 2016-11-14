@@ -24,4 +24,9 @@ docker run --name squid -d --restart=always \
   --volume `pwd`/squid-data:/var/spool/squid3 \
   squid
 
-docker exec -it squid tail -f /var/log/squid3/access.log 
+docker exec -it squid tail -f /var/log/squid3/access.log
+
+## Swarm visualizer 
+
+docker run -it -d -p 80:8080 -v /var/run/docker.sock:/var/run/docker.sock netbook.local:5000/visualizer-arm
+
